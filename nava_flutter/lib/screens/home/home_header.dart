@@ -10,22 +10,22 @@ class HomeHeader extends StatelessWidget {
       color: Colors.red,
       child: Align(
         alignment: Alignment.centerLeft,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-           Icon(Icons.flutter_dash),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  "TOKKO MARINE",
-                  style: TextStyle(fontSize: 12),
-                ),
-                Text("SEGURADORA", style: TextStyle(fontSize: 12))
-              ],
-            )
-          ],
-        ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+             Icon(Icons.flutter_dash),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    "TOKKO MARINE",
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  Text("SEGURADORA", style: TextStyle(fontSize: 12))
+                ],
+              )
+            ],
+          ),
       ),
     );
   }
