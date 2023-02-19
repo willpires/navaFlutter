@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:nava_flutter/home_page.dart';
+import 'package:nava_flutter/screens/home/home_page.dart';
 import 'firebase_options.dart';
 
 void main() async {

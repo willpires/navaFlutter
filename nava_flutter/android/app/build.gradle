@@ -21,6 +21,9 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+static  androidTargetSdk() { return 33 }
+static androidMinSdk()  { return 18 }
+
 apply plugin: 'com.android.application'
 // START: FlutterFire Configuration
 apply plugin: 'com.google.gms.google-services'
@@ -28,8 +31,10 @@ apply plugin: 'com.google.gms.google-services'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+
+
 android {
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion androidTargetSdk()
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -50,8 +55,9 @@ android {
         applicationId "com.example.nava_flutter"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion androidMinSdk()
+        targetSdkVersion androidTargetSdk()
+
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
