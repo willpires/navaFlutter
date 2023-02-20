@@ -16,7 +16,7 @@ class ItemService extends StatelessWidget {
         width: 80,
         height: 70,
         child: Card(
-
+        color: Theme.of(context).colorScheme.background,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -25,10 +25,11 @@ class ItemService extends StatelessWidget {
                 Icon(
                   icon ,
                   size: 20,
+                  color: Colors.white,
                 ),
                 Text(
                   text,
-                  style: TextStyle(fontSize: 11),
+                  style: TextStyle(fontSize: 11,color: Colors.white),
                 )
               ],
             ),

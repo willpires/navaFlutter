@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:nava_flutter/util/degrader.dart';
 
 class SubHeader extends StatelessWidget {
   const SubHeader({Key? key}) : super(key: key);
@@ -9,9 +10,9 @@ class SubHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
-      color: Colors.amber,
+      decoration: Degrader.decoration,
       child: const ListTile(
-        leading: FlutterLogo(size:56.0),
+        leading: Icon(Icons.flutter_dash, size: 40,),
         title: Text("Bem vindo"),
         subtitle: Text("Caio Maximo"),
 

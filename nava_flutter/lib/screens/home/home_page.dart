@@ -20,9 +20,24 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const HomeHeader(),
-        actions: const [
-          IconButton(onPressed: null, icon: Icon(Icons.notifications))
+        backgroundColor: Theme.of(context).primaryColor,
+        title:  const  HomeHeader(),
+        actions: [
+          IconButton(onPressed: (){},
+              icon: Stack(children: const  [
+             Icon(Icons.notifications,color: Colors.red,),
+            Positioned(
+                left: 16.0,
+                child: Icon(Icons.brightness_1,
+                  color:Colors.white ,
+                  size: 9.0,
+                )
+
+            )
+          ]) )
+
+
+
         ],
       ),
 
@@ -41,46 +56,56 @@ class ContainerMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const SubHeader(),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: const [
-              Divider(
-                height: 10,
-                color: Colors.transparent,
-              ),
-              Text("Cotar e Contratar"),
-              Divider(
-                height: 10,
-                color: Colors.transparent,
-              ),
-              ListaServicos(),
-              Divider(
-                height: 14,
-                color: Colors.transparent,
-              ),
-              ServicosAdiconais(
-                  text: "Minha Familia",
-                  subText:
-                      "Adicione aqui membros da sua familia e compartilhe os seguros com eles.",
-                  iconData: Icons.add),
-              Divider(
-                height: 14,
-                color: Colors.transparent,
-              ),
-              ServicosAdiconais(
-                  text: "Contratos",
-                  subText: "Você ainda nao possui seguros contratos.",
-                  iconData: Icons.add)
-            ],
-          ),
-        )
-      ],
+    return Container(
+      color: Theme.of(context).primaryColor,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const SubHeader(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: const [
+                Divider(
+                  height: 10,
+                  color: Colors.transparent,
+                ),
+                Text("Cotar e Contratar",style:
+                TextStyle(
+                    color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 26
+                ),
+
+                ),
+                Divider(
+                  height: 10,
+                  color: Colors.transparent,
+                ),
+                ListaServicos(),
+                Divider(
+                  height: 14,
+                  color: Colors.transparent,
+                ),
+                ServicosAdiconais(
+                    text: "Minha Familia",
+                    subText:
+                        "Adicione aqui membros da sua familia e compartilhe os seguros com eles.",
+                    iconData: Icons.add),
+                Divider(
+                  height: 14,
+                  color: Colors.transparent,
+                ),
+                ServicosAdiconais(
+                    text: "Contratos",
+                    subText: "Você ainda nao possui seguros contratos.",
+                    iconData: Icons.add)
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

@@ -14,19 +14,28 @@ class ServicosAdiconais extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(this.text),
+        Text(this.text,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 26,
+          fontWeight: FontWeight.bold,
+        ),
+        ),
+        Divider(height: 10,),
         SizedBox(
           height: 200,
           width: 100,
           child: Card(
-            color: Colors.greenAccent,
+            color: Theme.of(context).colorScheme.background,
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding:  EdgeInsets.all(20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                     Icon(iconData),
-                    Text(subText)
+                    Text(subText,style: TextStyle(
+                      color: Colors.white
+                    ) ,)
                 ],
               ),
             ),

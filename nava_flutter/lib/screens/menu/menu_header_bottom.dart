@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:nava_flutter/util/degrader.dart';
 
 class MenuHeaderBottom extends StatelessWidget {
   const MenuHeaderBottom({Key? key}) : super(key: key);
@@ -9,13 +10,17 @@ class MenuHeaderBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
+      decoration: Degrader.decoration,
       child: Padding(
         padding: const EdgeInsets.all(40.0),
         child: Column(
           children: const [
             Icon(Icons.phone_android),
-            Text("Duvidas? Gasrnta agora o seu cartao")
+            Text("Duvidas? Gasrnta agora o seu cartao",
+            style: TextStyle(
+              color: Colors.white
+            ),
+            )
           ],
         ),
       ),

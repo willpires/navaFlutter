@@ -7,7 +7,7 @@ class HomeHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.red,
+      color: Theme.of(context).primaryColor,
       child: Align(
         alignment: Alignment.centerLeft,
           child: Row(

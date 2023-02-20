@@ -9,33 +9,41 @@ class MenuPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const DrawerHeader(
-          decoration: BoxDecoration(color: Colors.red),
-          child: HeaderMenu(),
-        ),
-        const ItemMenu(title: "Home/seguro"),
-        const ItemMenu(title: "Home/seguro"),
-        const ItemMenu(title: "Home/seguro"),
-        const ItemMenu(title: "Home/seguro"),
-        const ItemMenu(title: "Home/seguro"),
-        const ItemMenu(title: "Home/seguro"),
-        const ItemMenu(title: "Home/seguro"),
-        const ItemMenu(title: "Home/seguro"),
-        const ItemMenu(title: "Home/seguro"),
-        const ItemMenu(title: "Home/seguro"),
-        Padding(
-          padding: const EdgeInsets.only(left: 20.0),
-          child: Row(
-            children: const [Text("Sair")],
+    return Container(
+      color: Theme.of(context).primaryColor,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+           DrawerHeader(
+            decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+            child: HeaderMenu(),
           ),
-        ),
-        Divider(height: 40,color: Colors.transparent,),
-        Expanded(child: MenuHeaderBottom())
+          const ItemMenu(title: "Home/seguro"),
+          const ItemMenu(title: "Home/seguro"),
+          const ItemMenu(title: "Home/seguro"),
+          const ItemMenu(title: "Home/seguro"),
+          const ItemMenu(title: "Home/seguro"),
+          const ItemMenu(title: "Home/seguro"),
+          const ItemMenu(title: "Home/seguro"),
+          const ItemMenu(title: "Home/seguro"),
+          const ItemMenu(title: "Home/seguro"),
+          const ItemMenu(title: "Home/seguro"),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0),
+            child: Row(
+              children: const [Text("Sair",
+              style: TextStyle(
+                color: Colors.white
+              ),
+              )],
+            ),
 
-      ],
+          ),
+          Divider(height: 40,color: Colors.transparent,),
+          Expanded(child: MenuHeaderBottom())
+
+        ],
+      ),
     );
   }
 }
