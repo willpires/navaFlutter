@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:nava_flutter/screens/home/home_header.dart';
 import 'package:nava_flutter/screens/home/servcisoAdiconas/servicos_adicionas.dart';
 import 'package:nava_flutter/screens/home/servicos/lista_servicos.dart';
@@ -7,9 +6,7 @@ import 'package:nava_flutter/screens/home/subHeader/sub_Header.dart';
 import 'package:nava_flutter/screens/menu/menu_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -21,23 +18,23 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        title:  const  HomeHeader(),
+        title: const HomeHeader(),
         actions: [
-          IconButton(onPressed: (){},
-              icon: Stack(children: const  [
-             Icon(Icons.notifications,color: Colors.red,),
-            Positioned(
-                left: 16.0,
-                child: Icon(Icons.brightness_1,
-                  color:Colors.white ,
-                  size: 9.0,
-                )
-
-            )
-          ]) )
-
-
-
+          IconButton(
+              onPressed: () {},
+              icon: Stack(children: const [
+                Icon(
+                  Icons.notifications,
+                  color: Colors.red,
+                ),
+                Positioned(
+                    left: 16.0,
+                    child: Icon(
+                      Icons.brightness_1,
+                      color: Colors.white,
+                      size: 9.0,
+                    ))
+              ]))
         ],
       ),
 
@@ -71,13 +68,12 @@ class ContainerMain extends StatelessWidget {
                   height: 10,
                   color: Colors.transparent,
                 ),
-                Text("Cotar e Contratar",style:
-                TextStyle(
-                    color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 26
-                ),
-
+                Text(
+                  "Cotar e Contratar",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 26),
                 ),
                 Divider(
                   height: 10,
