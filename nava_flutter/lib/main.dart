@@ -5,12 +5,11 @@ import 'package:nava_flutter/feature/home/presentation/page/home_page.dart';
 import 'package:nava_flutter/feature/signin/presentation/page/bloc/ath_state.dart';
 import 'package:nava_flutter/feature/signin/presentation/page/bloc/auth_bloc.dart';
 import 'package:nava_flutter/feature/signin/presentation/page/signin.page.presentation.dart';
+import 'package:nava_flutter/feature/technical_assistance/presentation/page/assistencia_tecnica.dart';
 import 'package:nava_flutter/shared/theme/theme.dart';
 
 import 'firebase_options.dart';
-import 'package:nava_flutter/core/injection/dependency.injection.dart' as  di;
-
-
+import 'package:nava_flutter/core/injection/dependency.injection.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,9 +17,6 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   await di.init();
-  // WebViewPlatform.instance = AppWebView();
-
-  // final autRepository = AuthRepository();
 
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -29,17 +25,20 @@ void main() async {
     home: BlocProvider<AuthBloc>(
       create: (context) => di.getItInstance<AuthBloc>(),
       child: BlocListener<AuthBloc, AuthState>(
-        listener: (context , state){
-          if(state is AthError){
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.error),));
-
-          }else if(state is UnAuthenticated){
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("UnAuthenticated"),));
-
-          }else if(state is Athenticated){
+        listener: (context, state) {
+          if (state is AthError) {
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+              behavior: SnackBarBehavior.floating,
+              content: Text(state.error),
+            ));
+          } else if (state is UnAuthenticated) {
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              content: Text("UnAuthenticated"),
+            ));
+          } else if (state is Athenticated) {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) =>  HomePage(),
+                builder: (context) => HomePage(),
               ),
             );
           }

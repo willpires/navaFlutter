@@ -9,9 +9,10 @@ class FieldCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
+        children:  [
           Divider(
             height: 8,
             color: Colors.transparent,
@@ -23,13 +24,11 @@ class FieldCustom extends StatelessWidget {
             height: 8,
             color: Colors.transparent,
           ),
-          SizedBox(
-            height: 40,
+          Container(
+            height: 46,
             child: TextFormField(
               keyboardType: textInputType,
-              decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  contentPadding: EdgeInsets.fromLTRB(5, 5, 5, 5)),
+
             ),
           ),
         ],
@@ -37,3 +36,7 @@ class FieldCustom extends StatelessWidget {
     );
   }
 }
+
+// decoration: const InputDecoration(
+// border: OutlineInputBorder(),
+

@@ -22,20 +22,20 @@ class AuthRepository {
     });
   }
 
-  // Future<void> signUp({required String email, required String password}) async {
-  //   try {
-  //     await FirebaseAuth.instance
-  //         .createUserWithEmailAndPassword(email: email, password: password);
-  //   } on FirebaseAuthException catch (e) {
-  //     if (e.code == 'weak-password') {
-  //       throw Exception('The password provided is too weak.');
-  //     } else if (e.code == 'email-already-in-use') {
-  //       throw Exception('The account already exists for that email.');
-  //     }
-  //   } catch (e) {
-  //     throw Exception(e.toString());
-  //   }
-  // }
+  Future<void> signUp({required String email, required String password}) async {
+    try {
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        throw Exception('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        throw Exception('The account already exists for that email.');
+      }
+    } catch (e) {
+      throw Exception(e.toString());
+    }
+  }
 
   Future<void> signIn({
     required String email,

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nava_flutter/feature/technical_assistance/presentation/widget/field_custom/field_custom.dart';
 
@@ -19,24 +18,38 @@ class _FormState extends State<Forms> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Divider(
+          const Divider(
             height: 10,
           ),
-          FieldCustom(text: "CPF/CNPJ", textInputType: TextInputType.text),
-          Divider(
+          const FieldCustom(text: "CPF/CNPJ", textInputType: TextInputType.text),
+          const Divider(
             height: 10,
           ),
-          FieldCustom(text: "PLACA", textInputType: TextInputType.text),
-          Divider(
-            height: 10,
+          const FieldCustom(text: "PLACA", textInputType: TextInputType.text),
+          const Divider(
+            height: 30,
             color: Colors.transparent,
           ),
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(
-              style: ButtonStyle(),
+            child: TextButton(
+                style:ElevatedButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.secondary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4.0),
+                    side: BorderSide(
+                      color: Theme.of(context).colorScheme.secondary,
+                      width: 1
+                    )
+                  )
+                ),
               onPressed: () {},
-              child: Text("Buscar"),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text("Buscar",style: TextStyle(
+                  color: Theme.of(context).colorScheme.secondary
+                ),),
+              ),
             ),
           )
         ],

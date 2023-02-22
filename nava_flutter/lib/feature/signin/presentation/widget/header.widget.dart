@@ -38,7 +38,7 @@ class HeaderWidget extends StatelessWidget {
           margin: EdgeInsets.only(
             left: 32,
             right: 32,
-            top: ((MediaQuery.of(context).size.height/100)*5),
+            top: ((MediaQuery.of(context).size.height/100)*8),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
