@@ -24,14 +24,14 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {},
             icon: Stack(children: const [
               Icon(
-                Icons.notifications,
+                Icons.notifications_none,
                 color: Colors.white,
               ),
               Positioned(
                   left: 16.0,
                   child: Icon(
                     Icons.brightness_1,
-                    color: Colors.white,
+                    color: Colors.purpleAccent,
                     size: 9.0,
                   ))
             ]))

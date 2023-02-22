@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+
+
 
 class HeaderWidget extends StatelessWidget {
   HeaderWidget({Key? key}) : super(key: key);
@@ -43,7 +46,9 @@ class HeaderWidget extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.only(bottom: 16),
+                alignment: Alignment.topLeft,
                 child: Row(
+                  mainAxisAlignment:  kIsWeb == true? MainAxisAlignment.center : MainAxisAlignment.start,
                   children: [
                     Container(
                       margin: const EdgeInsets.only(right: 4),
@@ -77,6 +82,7 @@ class HeaderWidget extends StatelessWidget {
               ),
               Text(
                 bemVindo,
+                textAlign: kIsWeb == true?TextAlign.center:null,
                 style: TextStyle(
                   fontSize:  ((MediaQuery.of(context).size.height/100)*3.5),
                   color: Colors.white,
@@ -89,6 +95,7 @@ class HeaderWidget extends StatelessWidget {
               ),
               Text(
                 aquiVoceGerenciaSeusSeguros,
+                textAlign: kIsWeb == true?TextAlign.center:null,
                 style: TextStyle(
                   fontSize: 16.0,
                   height: ((MediaQuery.of(context).size.height/100)*0.2),
