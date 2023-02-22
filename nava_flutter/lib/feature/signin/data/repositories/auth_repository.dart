@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:firebase_auth/firebase_auth.dart';
 
+import '../../../../core/error/sign_email_senha_failure.dart';
+
 class AuthRepository {
-  final _firebaseAuth = FirebaseAuth.instance;
+  final _firebaseAuth = firebase_auth.FirebaseAuth.instance;
 
   AuthRepository() {
      _authchechekd();
@@ -41,13 +44,13 @@ class AuthRepository {
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        throw Exception('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        throw Exception('Wrong password provided for that user.');
-      }
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      throw SignEmailSenhaFailure.fromCode(e.code);
+
+    }catch (_){
+      throw const SignEmailSenhaFailure();
     }
+
   }
 
   Future<void> signOut() async {
