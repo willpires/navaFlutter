@@ -10,19 +10,10 @@ class SignInRequested extends AthEvent {
 
   @override
   // TODO: implement props
-  List<Object?> get props => [];
+  List<Object?> get props => [ email,password];
 }
 
-class SignUpRequested extends AthEvent {
-  final String email;
-  final String password;
 
-  SignUpRequested(this.email, this.password);
-
-  @override
-  // TODO: implement props
-  List<Object?> get props => [];
-}
 
 class AddLoadAth extends AthEvent {
   @override

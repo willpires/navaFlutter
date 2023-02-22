@@ -83,7 +83,7 @@ class CardFieldWidget extends StatelessWidget {
                 FloatingActionButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      BlocProvider.of<AuthBloc>(context).add(
+                      context.read<AuthBloc>().add(
                         SignInRequested(
                             email: _emailController.text,
                             password: _passwordController.text),

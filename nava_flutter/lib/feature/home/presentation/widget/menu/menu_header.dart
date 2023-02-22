@@ -12,7 +12,6 @@ class HeaderMenu extends StatelessWidget {
       height: 10,
       color: Theme.of(context).primaryColor,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const Text("Olá",
               style: TextStyle(
@@ -24,9 +23,10 @@ class HeaderMenu extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                  alignment: Alignment.topLeft,
                   color: Colors.red,
-                  child: Column(children: [
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
                     const Text("CAIO MAXIMO",
                        style: TextStyle(
                          fontSize: 15,
@@ -35,8 +35,7 @@ class HeaderMenu extends StatelessWidget {
 
                     ),),
                     Text("Minha conta",
-
-                        style:TextStyle(
+                      textAlign: TextAlign.start, style:TextStyle(
                       color: Theme.of(context).colorScheme.secondary,
                         fontWeight:FontWeight.bold
                     ))

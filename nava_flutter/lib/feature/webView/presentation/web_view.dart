@@ -24,7 +24,7 @@ class AppWebView extends StatefulWidget {
         },
       ),
     )
-    ..loadRequest(Uri.parse('https://flutter.dev'));
+    ..loadRequest(Uri.parse('https://www.nava.com.br/pt/'));
 
   AppWebView({Key? key}) : super(key: key);
 

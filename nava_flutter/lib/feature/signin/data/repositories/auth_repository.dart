@@ -4,10 +4,12 @@ class AuthRepository {
   final _firebaseAuth = FirebaseAuth.instance;
 
   AuthRepository() {
-    _authchechekd();
+     _authchechekd();
+
   }
 
-  _authchechekd() {
+    _authchechekd() {
+
     _firebaseAuth.authStateChanges().listen((User? user) {
       if (user == null) {
         print('User is currently signed out!');
