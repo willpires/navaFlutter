@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:nava_flutter/feature/home/presentation/widget/home_header/home_header.dart';
-import 'package:nava_flutter/feature/home/presentation/widget/servcisoAdiconas/servicos_adicionas.dart';
 import 'package:nava_flutter/feature/home/presentation/widget/servicos/lista_servicos.dart';
 import 'package:nava_flutter/feature/home/presentation/widget/subHeader/sub_Header.dart';
 import 'package:nava_flutter/feature/home/presentation/widget/menu/menu_page.dart';
+
+import '../widget/servcos_adicionais/servicos_adicionas.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});
@@ -95,10 +96,10 @@ class ContainerMain extends StatelessWidget {
                   color: Colors.transparent,
                 ),
                 ServicosAdiconais(
-                  text: "Minha Familia",
+                  text: "Minha Família",
                   subText:
-                      "Adicione aqui membros da sua familia e compartilhe os seguros com eles.",
-                  iconData: Icons.add,
+                      "Adicione aqui membros da sua família e compartilhe os seguros com eles.",
+                  iconData: Icons.add_circle_outline,
                 ),
                 Divider(
                   height: 14,
@@ -106,8 +107,8 @@ class ContainerMain extends StatelessWidget {
                 ),
                 ServicosAdiconais(
                   text: "Contratos",
-                  subText: "Você ainda nao possui seguros contratos.",
-                  iconData: Icons.add,
+                  subText: "Você ainda não possui seguros contratos.",
+                  iconData: Icons.sentiment_very_dissatisfied,
                 )
               ],
             ),

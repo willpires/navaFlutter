@@ -35,12 +35,13 @@ class ServicosAdiconais extends StatelessWidget {
           child: Card(
             color: Theme.of(context).colorScheme.background,
             child: Padding(
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Icon(iconData),
+                  Icon(iconData,size: 30, color: Colors.white,),
                   Text(
+                    textAlign: TextAlign.center,
                     subText,
                     style: const TextStyle(color: Colors.white),
                   )
