@@ -53,12 +53,14 @@ class CardFieldWidget extends StatelessWidget {
                         child: _buildSignIn(),
                       ),
                       FormFieldWidget(
+                        type: TypeField.Email,
                         controller: _emailController,
                         textoPlaceholder: cpf,
                         mensagemCampoVazio: preenchaCpf,
                         corDoCardDosCampos: corDoCardDosCampos,
                       ),
                       FormFieldWidget(
+                        type:TypeField.Password ,
                         controller: _passwordController,
                         textoPlaceholder: senha,
                         mensagemCampoVazio: preenchaSenha,

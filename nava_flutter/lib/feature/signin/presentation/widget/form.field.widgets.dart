@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nava_flutter/core/util/valid_email.dart';
+
+enum TypeField {
+      Email,
+      Password
+}
 
 class FormFieldWidget extends StatelessWidget {
   const FormFieldWidget({
@@ -6,13 +12,15 @@ class FormFieldWidget extends StatelessWidget {
     required this.textoPlaceholder,
     required this.mensagemCampoVazio,
     required this.corDoCardDosCampos,
-    required this.controller
+    required this.controller,
+    required this.type,
   }) : super(key: key);
 
   final String textoPlaceholder;
   final String mensagemCampoVazio;
   final Color corDoCardDosCampos;
   final TextEditingController controller;
+  final  TypeField type;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +68,13 @@ class FormFieldWidget extends StatelessWidget {
           if (value == null || value.isEmpty) {
             return mensagemCampoVazio;
           }
+
+          if(type == TypeField.Email){
+            if(!value.isValidEmail()){
+              return "Email inválido!";
+            }
+          }
+
           return null;
         },
       ),

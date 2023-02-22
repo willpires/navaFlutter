@@ -19,6 +19,9 @@ class ItemService extends StatelessWidget {
         width: 100,
         height: 60,
         child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0)
+          ),
           color: Theme.of(context).colorScheme.background,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
@@ -27,7 +30,7 @@ class ItemService extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Image.asset(image_path, height: 20,width: 30,color: Colors.green,),
+                  Image.asset(image_path, height:  25,width: 30,color: Colors.green,),
                   // Icon(
                   //   icon,
                   //   size: 20,

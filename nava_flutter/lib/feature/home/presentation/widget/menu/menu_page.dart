@@ -41,13 +41,16 @@ class MenuPage extends StatelessWidget {
           Divider(height: 1,color: Theme.of(context).colorScheme.background,),
           const ItemMenu(title: "Configurações"),
           Padding(
-            padding: const EdgeInsets.only(left: 20.0),
+            padding:  EdgeInsets.only(left: 8.0),
             child: Row(
               children: const [
-                Text(
-                  "Sair",
-                  style: TextStyle(color: Colors.white),
-                )
+                TextButton(
+                  onPressed: null,
+                  child: Text(
+                    "Sair",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ],
             ),
           ),
