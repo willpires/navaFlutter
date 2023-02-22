@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nava_flutter/blocs/ath_event.dart';
+import 'package:nava_flutter/blocs/auth_bloc.dart';
+import 'package:nava_flutter/screens/home/home_page.dart';
 
 import 'form.field.widgets.dart';
 
@@ -44,7 +48,7 @@ class CardFieldWidget extends StatelessWidget {
                     children: [
                       Container(
                         margin: const EdgeInsets.only(top: 8, bottom: 8),
-                        child: _buildSignIn(),
+                        child: _buildSignIn(context),
                       ),
                       FormFieldWidget(
                         textoPlaceholder: cpf,
@@ -73,7 +77,10 @@ class CardFieldWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 FloatingActionButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    BlocProvider.of<AuthBloc>(context).add(SignInRequested(email: "nava1@teste.com", password: "123456"));
+
+                  },
                   backgroundColor: corDoCardDosCampos,
                   child: Container(
                     width: 48,
@@ -100,11 +107,13 @@ class CardFieldWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildSignIn() {
+  Widget _buildSignIn( BuildContext context) {
     return Row(
       children: [
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+
+          },
           child: Text(
             entrar,
             style: TextStyle(
@@ -131,6 +140,7 @@ class CardFieldWidget extends StatelessWidget {
       ],
     );
   }
+
 
   Widget _buildCardFooter() {
     return Row(

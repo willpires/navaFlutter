@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ItemService extends StatelessWidget {
@@ -6,7 +5,11 @@ class ItemService extends StatelessWidget {
   final IconData icon;
   final Function funtion;
 
-  ItemService( { required this.text, required this.icon, required this.funtion} );
+  const ItemService({
+    required this.text,
+    required this.icon,
+    required this.funtion,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,31 +19,29 @@ class ItemService extends StatelessWidget {
         width: 80,
         height: 70,
         child: Card(
-        color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.background,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Icon(
-                  icon ,
+                  icon,
                   size: 20,
                   color: Colors.white,
                 ),
                 Text(
                   text,
-                  style: TextStyle(fontSize: 11,color: Colors.white),
+                  style: TextStyle(fontSize: 11, color: Colors.white),
                 )
               ],
             ),
           ),
         ),
       ),
-      onTap: (){
+      onTap: () {
         funtion();
       },
-
     );
   }
-
 }

@@ -1,16 +1,29 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:nava_flutter/entity/servicos.dart';
 import 'package:nava_flutter/screens/home/servicos/item_servico.dart';
 import 'package:nava_flutter/screens/webview/web_view.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+
+import '../../webview/fake_web_view_plaform.dart';
 
 class ListaServicos extends StatelessWidget {
   const ListaServicos({Key? key}) : super(key: key);
 
   void teste(int idServico, BuildContext context) {
-    print("ola ...... $idServico");
     if (idServico == 1) {
+      var web = FakeWebViewPlatform();
+
+      if (kIsWeb) {
+        web.testelaunchUrl();
+        return;
+      }
+
       Navigator.push(
-          context, MaterialPageRoute(builder: (builder) => AppWebView()));
+        context,
+        MaterialPageRoute(builder: (builder) => AppWebView()),
+      );
     }
   }
 
@@ -41,12 +54,6 @@ class ListaServicos extends StatelessWidget {
     servicosList.add(servico6);
     servicosList.add(servico7);
 
-    // "Automovel",
-    // "Residencia",
-    // "Vida",
-    // "Acidentente Pessoas",
-    // "Moto",
-    // "Empresa"
     return Container(
       height: 100,
       width: double.infinity,

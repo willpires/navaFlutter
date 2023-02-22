@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:nava_flutter/util/degrader.dart';
 
 class HeaderWidget extends StatelessWidget {
   HeaderWidget({Key? key}) : super(key: key);
@@ -22,7 +21,16 @@ class HeaderWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        decoration: Degrader.decoration,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: const Alignment(-1.0, 0.1),
+            end: const Alignment(1.0, 1.1),
+            colors: [
+              colorCustomGreen,
+              colorCustomYellow,
+            ],
+          ),
+        ),
         child: Container(
           margin: const EdgeInsets.only(
             left: 32,

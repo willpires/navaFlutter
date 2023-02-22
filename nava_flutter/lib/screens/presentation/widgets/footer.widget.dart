@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nava_flutter/screens/presentation/widgets/icon.button.widget.dart';
+
+import 'icon.button.widget.dart';
 
 class FooterWidget extends StatelessWidget {
   FooterWidget({Key? key}) : super(key: key);

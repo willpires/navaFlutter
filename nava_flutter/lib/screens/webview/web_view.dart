@@ -4,7 +4,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 class AppWebView extends StatefulWidget {
   final controller = WebViewController()
     ..setJavaScriptMode(JavaScriptMode.unrestricted)
-    ..setBackgroundColor(Colors.transparent)
+    ..setBackgroundColor(Colors.white)
     ..setNavigationDelegate(
       NavigationDelegate(
         onProgress: (int progress) {

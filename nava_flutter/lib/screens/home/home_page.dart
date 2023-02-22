@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nava_flutter/blocs/auth_repository.dart';
 import 'package:nava_flutter/screens/home/home_header.dart';
 import 'package:nava_flutter/screens/home/servcisoAdiconas/servicos_adicionas.dart';
 import 'package:nava_flutter/screens/home/servicos/lista_servicos.dart';
@@ -6,53 +7,77 @@ import 'package:nava_flutter/screens/home/subHeader/sub_Header.dart';
 import 'package:nava_flutter/screens/menu/menu_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+   HomePage({super.key});
+
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
+
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    final teste =  AuthRepository();
+    teste.signIn(email: "nava1@teste.com", password: "123456");
+}
+
   @override
   Widget build(BuildContext context) {
+    final appBar = AppBar(
+      backgroundColor: Theme.of(context).primaryColor,
+      title: const HomeHeader(),
+      actions: [
+        IconButton(
+            onPressed: () {},
+            icon: Stack(children: const [
+              Icon(
+                Icons.notifications,
+                color: Colors.white,
+              ),
+              Positioned(
+                  left: 16.0,
+                  child: Icon(
+                    Icons.brightness_1,
+                    color: Colors.white,
+                    size: 9.0,
+                  ))
+            ]))
+      ],
+    );
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
-        title: const HomeHeader(),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Stack(children: const [
-                Icon(
-                  Icons.notifications,
-                  color: Colors.red,
-                ),
-                Positioned(
-                    left: 16.0,
-                    child: Icon(
-                      Icons.brightness_1,
-                      color: Colors.white,
-                      size: 9.0,
-                    ))
-              ]))
-        ],
-      ),
+      appBar: appBar,
 
       drawer: const Drawer(
         child: MenuPage(),
       ),
 
-      body: const ContainerMain(),
+      body: SingleChildScrollView(
+          child: ContainerMain(
+        appBar: appBar,
+      )),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
 
 class ContainerMain extends StatelessWidget {
-  const ContainerMain({Key? key}) : super(key: key);
+  final AppBar appBar;
+
+  const ContainerMain({
+    Key? key,
+    required this.appBar,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    print(
+        " teste ${MediaQuery.of(context).size.height - appBar.preferredSize.height}");
+
     return Container(
       color: Theme.of(context).primaryColor,
       child: Column(

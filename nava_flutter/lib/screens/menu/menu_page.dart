@@ -14,34 +14,36 @@ class MenuPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-           DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(color: Theme.of(context).primaryColor),
             child: HeaderMenu(),
           ),
           const ItemMenu(title: "Home/seguro"),
-          const ItemMenu(title: "Home/seguro"),
-          const ItemMenu(title: "Home/seguro"),
-          const ItemMenu(title: "Home/seguro"),
-          const ItemMenu(title: "Home/seguro"),
-          const ItemMenu(title: "Home/seguro"),
-          const ItemMenu(title: "Home/seguro"),
-          const ItemMenu(title: "Home/seguro"),
-          const ItemMenu(title: "Home/seguro"),
-          const ItemMenu(title: "Home/seguro"),
+          const ItemMenu(title: "Minhas Configurações"),
+          const ItemMenu(title: "Meus Contratos"),
+          const ItemMenu(title: "Minha Família"),
+          const ItemMenu(title: "Meus Bonus"),
+          const ItemMenu(title: "Pagamentos"),
+          const ItemMenu(title: "Corretores"),
+          const ItemMenu(title: "Viagens"),
+          const ItemMenu(title: "Telefones Importantes"),
+          const ItemMenu(title: "Configurações"),
           Padding(
             padding: const EdgeInsets.only(left: 20.0),
             child: Row(
-              children: const [Text("Sair",
-              style: TextStyle(
-                color: Colors.white
-              ),
-              )],
+              children: const [
+                Text(
+                  "Sair",
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
             ),
-
           ),
-          Divider(height: 40,color: Colors.transparent,),
+          const Divider(
+            height: 40,
+            color: Colors.transparent,
+          ),
           Expanded(child: MenuHeaderBottom())
-
         ],
       ),
     );

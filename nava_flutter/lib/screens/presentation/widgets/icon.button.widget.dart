@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class IconButtonWidget extends StatelessWidget {
-
   const IconButtonWidget({
     Key? key,
     required this.imagePath,
