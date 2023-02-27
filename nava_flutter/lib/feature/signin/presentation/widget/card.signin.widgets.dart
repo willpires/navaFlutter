@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nava_flutter/feature/signin/presentation/page/bloc/ath_state.dart';
 
 import '../page/bloc/ath_event.dart';
 import '../page/bloc/auth_bloc.dart';
@@ -26,6 +27,10 @@ class CardFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var state = context.watch<AuthBloc>().state;
+    var tapped = false;
+    const duration = Duration(seconds: 1);
+
     return SizedBox(
       width: 900.0,
       height: 340.0,
@@ -60,7 +65,7 @@ class CardFieldWidget extends StatelessWidget {
                         corDoCardDosCampos: corDoCardDosCampos,
                       ),
                       FormFieldWidget(
-                        type:TypeField.Password ,
+                        type: TypeField.Password,
                         controller: _passwordController,
                         textoPlaceholder: senha,
                         mensagemCampoVazio: preenchaSenha,
@@ -82,32 +87,55 @@ class CardFieldWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                FloatingActionButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      context.read<AuthBloc>().add(
-                        SignInRequested(
-                            email: _emailController.text,
-                            password: _passwordController.text),
-                      );
-                    }
-                  },
-                  backgroundColor: corDoCardDosCampos,
-                  child: Container(
-                    width: 48,
-                    height: 48,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: LinearGradient(
-                        begin: Alignment(-1.0, 0.1),
-                        end: Alignment(1.0, 1.1),
-                        colors: [
-                          Color(0xFF34A48E),
-                          Color(0xFFE8E07E),
-                        ],
-                      ),
-                    ),
-                    child: const Icon(Icons.arrow_forward),
+                StatefulBuilder(
+                  builder: (context, setState) => FloatingActionButton(
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        setState(() {
+                          tapped = true;
+                        });
+                        await Future.delayed(duration, () {
+                          if (state is AthError) {
+                            setState(() {
+                              tapped = false;
+                            });
+                          }
+
+                          if (state is UnAuthenticated) {
+                            setState(() {
+                              tapped = false;
+                            });
+                          }
+                        });
+
+                        context.read<AuthBloc>().add(
+                              SignInRequested(
+                                  email: _emailController.text,
+                                  password: _passwordController.text),
+                            );
+                      }
+                    },
+                    backgroundColor: corDoCardDosCampos,
+                    child: Container(
+                        width: 48,
+                        height: 48,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient: LinearGradient(
+                            begin: Alignment(-1.0, 0.1),
+                            end: Alignment(1.0, 1.1),
+                            colors: [
+                              Color(0xFF34A48E),
+                              Color(0xFFE8E07E),
+                            ],
+                          ),
+                        ),
+                        child: tapped
+                            ? const Center(
+                                child: CircularProgressIndicator(
+                                color: Colors.red,
+                              ))
+                            : const Icon(Icons.arrow_forward)),
                   ),
                 ),
               ],

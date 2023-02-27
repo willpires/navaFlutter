@@ -17,11 +17,10 @@ class AuthBloc extends Bloc<AthEvent, AuthState> {
           );
           emit(Athenticated());
         } catch (e) {
-          emit(AthError(e.toString()));
+          emit(AthError("Usuário ou senha incorretos!"));
           emit(UnAuthenticated());
         }
       },
     );
-
   }
 }
